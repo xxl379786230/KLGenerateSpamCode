@@ -72,15 +72,15 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-modifyClassNamePrefix /Users/xuxiaolong/Desktop/Demo/Switch/BitAutoPlus/UsedCarShopping.xcodeproj  BP&gt;UCS&#10;"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-ignoreDirNames Pods/AFNetworking,Pods/Bugly,Pods/Masonry,Pods/CWStatusBarNotification,Pods/CocoaLumberjack,Pods/QCloudCOSXML,Pods/FDFullscreenPopGesture,Pods/FLAnimatedImage,Pods/ReactiveObjC,Pods/FLEX,Pods/RongCloudIM,Pods/FMDB,Pods/SAMKeychain,Pods/GTExtensionSDK,Pods/SDWebImage,Pods/GTSDK,Pods/SocketRocket,Pods/IQKeyboardManager,Pods/KSCrash,Pods/UMCAnalytics,Pods/LLDebugTool,Pods/UMCCommon,Pods/LinkedME_LinkPage,Pods/UMCShare,Pods/YYModel,Pods/MBProgressHUD,Pods/lottie-ios,Pods/MJExtension,Pods/pop,Pods/MJNIndexView,Pods/zhPopupController,Pods/MJRefresh,Pods/QCloudCore,Pods/BPBaseFuncLib,Pods/TXLiteAVSDK,Pods/MMKV,Pods/Headers"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "-spamCodeOut /Users/xuxiaolong/Desktop/Demo/Switch/TestFont/UsedCarShopping/SpamCode spamCode"
-            isEnabled = "NO">
+            argument = "-spamCodeOut /Users/xuxiaolong/Desktop/Demo/Switch/SpamCode spamCode"
+            isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-handleXcassets"

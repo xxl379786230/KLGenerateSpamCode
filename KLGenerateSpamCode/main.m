@@ -334,7 +334,7 @@ int main(int argc, const char * argv[]) {
             NSMutableString *newClassCallImportString = [NSMutableString string];
             NSMutableString *newClassCallFuncString = [NSMutableString string];
             
-            recursiveDirectory(gSourceCodeDir, ignoreDirNames, ^(NSString *mFilePath) {
+            recursiveDirectory(gSourceCodeDir, gIgnoreDirNames, ^(NSString *mFilePath) {
                 @autoreleasepool {
                     generateSpamCodeFile(outDirString, mFilePath, GSCSourceTypeClass, categoryCallImportString, categoryCallFuncString, newClassCallImportString, newClassCallFuncString);
                     generateSpamCodeFile(outDirString, mFilePath, GSCSourceTypeCategory, categoryCallImportString, categoryCallFuncString, newClassCallImportString, newClassCallFuncString);
@@ -368,7 +368,7 @@ void recursiveDirectory(NSString *directory, NSArray<NSString *> *ignoreDirNames
     for (NSString *filePath in files) {
         NSString *path = [directory stringByAppendingPathComponent:filePath];
         if ([fm fileExistsAtPath:path isDirectory:&isDirectory] && isDirectory) {
-            if (![ignoreDirNames containsObject:filePath]) {
+            if (!isIgnoreDirNames(path)) {
                 recursiveDirectory(path, nil, handleMFile, handleSwiftFile);
             }
             continue;
@@ -990,8 +990,10 @@ void modifyClassNamePrefix(NSMutableString *projectContent, NSString *sourceCode
             }
         } else if([fileName hasPrefix:oldName] && [fileExtension isEqualToString:@"xib"]){
             NSString *oldFilePath = [[sourceCodeDir stringByAppendingPathComponent:fileName] stringByAppendingPathExtension:@"xib"];
-            NSString *newFilePath = [[sourceCodeDir stringByAppendingPathComponent:newClassName] stringByAppendingPathExtension:@"xib"];
-            renameFile(oldFilePath, newFilePath);
+            if ([fm fileExistsAtPath:oldFilePath]) {
+                NSString *newFilePath = [[sourceCodeDir stringByAppendingPathComponent:newClassName] stringByAppendingPathExtension:@"xib"];
+                renameFile(oldFilePath, newFilePath);
+            }
             @autoreleasepool {
                 modifyFilesClassName(gSourceCodeDir, fileName, newClassName);
             }
